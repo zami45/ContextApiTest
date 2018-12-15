@@ -1,5 +1,5 @@
 import React from 'react';
-import {FamilyProvider} from "./Context";
+import {FamilyProvider} from "../Context/FamilyContext";
 import Parent from './Parent';
 
 class GrandParent extends React.Component{
@@ -13,7 +13,11 @@ class GrandParent extends React.Component{
 
     render(){
         return (
-            <FamilyProvider value={{state :this.state}}>
+            <FamilyProvider 
+                 value={{
+                     state :this.state,
+                     updatefirstname : e=>this.setState({firstname : 'soad'})
+                     }}>
                <Parent  />
             </FamilyProvider>
             

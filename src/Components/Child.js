@@ -1,18 +1,20 @@
 import React from 'react';
-import {FamilyConsumer} from "./Context";
+import { FamilyContextConsumer } from "../Context/FamilyContext";
 
-class Child extends React.Component{
+class Child extends React.Component {
 
-    render(){
+    render() {
         return (
-            <FamilyConsumer>
-            {(context) => (
-               <React.Fragment>
-                   <p>{context.state.firstname +' '+ context.state.lastname}</p>
-                   <p>{context.state.lastname}</p>
-               </React.Fragment>
-           )}
-            </FamilyConsumer>
+
+            <FamilyContextConsumer render ={()=>(
+                <div>
+                <p>{familyContext.state.firstname +' '+ familyContext.state.lastname}</p>
+                <p>{familyContext.state.lastname}</p>
+                <input type='button' onClick={familyContext.updatefirstname} value='change first name' />
+                </div>
+            )}>
+
+            </FamilyContextConsumer>
         );
     }
 }
