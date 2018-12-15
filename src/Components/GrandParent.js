@@ -16,7 +16,7 @@ class GrandParent extends React.Component{
             <FamilyProvider 
                  value={{
                      state :this.state,
-                     updatefirstname : e=>this.setState({firstname : 'soad'})
+                     updatefirstname : e=>this.setState({firstname : this.state.firstname === 'soad'?'al zami':'soad'})
                      }}>
                <Parent  />
             </FamilyProvider>
