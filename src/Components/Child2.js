@@ -8,7 +8,9 @@ class Child extends React.Component {
         return (
             <div>
                 <h1>Child 2</h1>
-                <h3>{familyContext.state.firstname}</h3>
+                <p>{familyContext.state.firstname +' '+ familyContext.state.lastname}</p>
+                <input type='button' onClick={familyContext.updatelastname} value='change LAST name' />
+
             </div>
 
         );
