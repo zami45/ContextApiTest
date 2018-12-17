@@ -1,35 +1,41 @@
 import React from 'react';
-import {FamilyProvider} from "../Context/FamilyContext";
+import {GrandParentProvider} from "../Context/GrandParentContext";
 import Parent from './Parent';
 
 class GrandParent extends React.Component{
     constructor(props){
        super(props);
        this.state={
-           firstname : "al zami",
-           lastname : "rahman"
+           firstname : "Mr.",
+           lastname : "ABC"
        }
     }
 
     updatefirstname(){
-        this.setState({firstname : this.state.firstname === 'soad' ? 'al zami' : 'soad'})
+        this.setState({firstname : this.state.firstname === 'Mrs.' ? 'Mr.' : 'Mrs.'})
     }
     
     updatelastname(){
-        this.setState({lastname: this.state.lastname === 'al-faruq' ? 'rahman' : 'al-faruq'})
+        this.setState({lastname: this.state.lastname === 'XYZ' ? 'ABC' : 'XYZ'})
+    }
+
+    updateboth(){
+        this.setState({firstname: 'MyFirstName',lastname : 'MyLastName'})
     }
     render(){
         return (
             <div >
                 <h1>Grandparent</h1>
-                <FamilyProvider 
+                <p>{this.state.firstname +' '+ this.state.lastname}</p>
+                <GrandParentProvider 
                     value={{
                         state :this.state,
                         updatefirstname :this.updatefirstname.bind(this),
-                        updatelastname : this.updatelastname.bind(this)
+                        updatelastname : this.updatelastname.bind(this),
+                        updateboth : this.updateboth.bind(this)
                         }}>
                 <Parent  />
-                </FamilyProvider>
+                </GrandParentProvider>
             </div>
 
             

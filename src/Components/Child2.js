@@ -1,20 +1,20 @@
 import React from 'react';
 
 
-class Child extends React.Component {
+class Child2 extends React.Component {
 
     render() {
-        const {familyContext} = this.props
+        const {grandParentContext} = this.props
         return (
             <div>
                 <h1>Child 2</h1>
-                <p>{familyContext.state.firstname +' '+ familyContext.state.lastname}</p>
-                <input type='button' onClick={familyContext.updatelastname} value='change LAST name' />
-
+                
+                <input type='button' onClick={grandParentContext.updatelastname} value='change LAST name' />
+                <input type='button' onClick={grandParentContext.updateboth} value='change BOTH' />
             </div>
 
         );
     }
 }
 
-export default Child;
+export default Child2;
